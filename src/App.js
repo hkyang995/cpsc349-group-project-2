@@ -37,21 +37,28 @@ export default class App extends React.Component {
         { <Router>
         <Navbar />
         <Switch>
-          <Route path="/register">
-            <Register />
-          </Route>
           <Route path="/home">
             <Home />
           </Route>
-          {this.state.user ? 
-          <Route path="/register">
-            <Home />
-          </Route>
-          : 
-          <Route path="/login">
-            <Login />
-          </Route>
-          }
+          {this.state.user ? (
+              <>
+                <Route path="/login">
+                 <Home />
+                </Route>
+                <Route path="/register">
+                 <Home />
+                </Route>
+              </>
+            ) : (
+              <>
+                <Route path="/login">
+                 <Login />
+                </Route>
+                <Route path="/register">
+                 <Register />
+                </Route>
+              </>
+            )}
           <Route path="/">
             <LandingPage />
           </Route>
