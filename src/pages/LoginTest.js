@@ -5,7 +5,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <h2>HOME</h2>
+        <h2>Logging in successfully</h2>
         <button onClick={()=> fire.auth().signOut()}>SignOut</button>
       </div>
     );
