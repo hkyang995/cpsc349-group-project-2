@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
+import Space from "../components/Space";
 
 const Container = styled.div`
   height: 100%;
@@ -22,6 +23,12 @@ const HeaderText = styled.h1`
   font-size: 100px;
 `;
 
+const InfoContainer = styled.div`
+  display: flex;
+  flex-align: center;
+  justify-content: center;
+`;
+
 export default class LandingPage extends React.Component {
   render() {
     return (
@@ -37,6 +44,23 @@ export default class LandingPage extends React.Component {
             </a>
           </Container>
         </StyledJumbo>
+        <Space height="200px" />
+        <InfoContainer>Hi</InfoContainer>
+        <Space height="200px" />
+        <InfoContainer>
+          <h1>What are you waiting for?</h1>
+        </InfoContainer>
+        <Space height="50px" />
+        <InfoContainer>
+          <Button variant="primary" size="lg">
+            Login
+          </Button>
+          <Space width="100px" />
+          <Button variant="secondary" size="lg">
+            Register
+          </Button>
+        </InfoContainer>
+        <Space height="200px" />
       </div>
     );
   }
