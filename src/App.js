@@ -3,6 +3,7 @@ import fire from "./config/firebase";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Faq from "./pages/faq";
 import LandingPage from "./pages/LandingPage";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
@@ -38,6 +39,9 @@ export default class App extends React.Component {
           <Router>
             <Navbar />
             <Switch>
+              <Route path="/faq">
+                <Faq />
+              </Route>
               <Route path="/home">
                 <Home />
               </Route>
