@@ -28,7 +28,6 @@ export default class Register extends React.Component {
     .catch((error) => {
         this.setState({fireErrors: error.message})
     });
-    console.log(document.getElementById("username").value);
   }
 
   handleChange = e => {
