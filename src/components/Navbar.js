@@ -41,6 +41,7 @@ export default class NavbarComponent extends React.Component {
               <>
                 <Nav.Link href="/login">Login</Nav.Link>
                 <Nav.Link href="/register">Register</Nav.Link>
+                <Nav.Link href="/UserProfile">User Profile</Nav.Link>
               </>
             )}
           </Nav>
