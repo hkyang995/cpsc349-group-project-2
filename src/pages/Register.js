@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Input } from 'reactstrap';
 import fire from '../config/firebase';
+import db from '../config/database';
+import { GiConsoleController } from "react-icons/gi";
 
 export default class Register extends React.Component {
   constructor(props){
@@ -18,16 +20,30 @@ export default class Register extends React.Component {
     this.handleChange = this.handleChange.bind(this);
 }
   register = e => {
-    // console.log (this.state.username);
+    // console.log (this.state.username);D
     e.preventDefault();
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-    .then(function(result) {
-      return result.user.updateProfile({
-        displayName: "testing"
-      })
-    })
+    .then((result)=>{
+           if(result){
+            result.user.updateProfile({
+                displayName: document.getElementById("username").value,
+             }).then(
+               (s)=> {
+                console.log('displayname',result.user.displayName );
+                db
+                .collection("userData")
+                .doc(result.user.uid)
+                .set({
+                  uid: result.user.uid,
+                  email: result.user.email,
+                  name: result.user.displayName,
+                });
+               }
+             )
+           }
+       })
     .catch((error) => {
-        this.setState({fireErrors: error.message})
+      this.setState({fireErrors: error.message})
     });
   }
 
@@ -62,7 +78,7 @@ export default class Register extends React.Component {
                 onChange={this.handleChange}
                 type="username" name="username" 
                 class="form-control"
-                id="name" 
+                id="username" 
                 placeholder="Username" />
               </Form.Group>
 
