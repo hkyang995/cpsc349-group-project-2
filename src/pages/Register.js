@@ -18,8 +18,14 @@ export default class Register extends React.Component {
     this.handleChange = this.handleChange.bind(this);
 }
   register = e => {
+    // console.log (this.state.username);
     e.preventDefault();
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+    .then(function(result) {
+      return result.user.updateProfile({
+        displayName: "testing"
+      })
+    })
     .catch((error) => {
         this.setState({fireErrors: error.message})
     });
@@ -50,14 +56,14 @@ export default class Register extends React.Component {
                 placeholder="Enter email" />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group controlId="formBasicUsername">
                 <Form.Label>Username</Form.Label>
                 <Input value={this.state.username} 
                 onChange={this.handleChange}
                 type="username" name="username" 
                 class="form-control"
-                id="exampleInputUsername" 
-                placeholder="username" />
+                id="name" 
+                placeholder="Username" />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">

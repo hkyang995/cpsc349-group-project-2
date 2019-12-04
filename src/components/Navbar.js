@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import fire from "../config/firebase";
 
 export default class NavbarComponent extends React.Component {
@@ -35,7 +36,12 @@ export default class NavbarComponent extends React.Component {
             <Nav.Link href="/home">Home</Nav.Link>
             {this.state.user ? (
               <>
-                <Nav.Link href="/home">Testing</Nav.Link>
+                <NavDropdown title = {this.state.user.displayName} id="basic-nav-dropdown">
+                 <NavDropdown.Item href="../userprofile">User Profile</NavDropdown.Item>
+                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                 <NavDropdown.Item href="#action/3.4">Something</NavDropdown.Item>
+                </NavDropdown>
               </>
             ) : (
               <>
