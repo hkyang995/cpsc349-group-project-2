@@ -7,7 +7,7 @@ import LandingPage from "./pages/LandingPage";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
-
+import UserProfile from "./pages/UserProfile";
 export default class App extends React.Component {
   constructor(){
     super();
@@ -24,7 +24,9 @@ export default class App extends React.Component {
     fire.auth().onAuthStateChanged((user) => {
       if(user){
         this.setState({user});
-        console.log(this.state.user.displayName);
+        // console.log(this.state.user); // output
+    // console.log(this.state.user.displayName); // output
+    console.log(this.state.user.uid); // output
       }else{
         this.setState({user:null});
       }
@@ -32,7 +34,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.user);
+    
     return (
       <div>
         { <Router>
@@ -41,6 +43,7 @@ export default class App extends React.Component {
           <Route path="/home">
             <Home />
           </Route>
+          
           {this.state.user ? (
               <>
                 <Route path="/login">
@@ -49,6 +52,9 @@ export default class App extends React.Component {
                 <Route path="/register">
                  <Home />
                 </Route>
+                <Route path="/userprofile">
+                  <UserProfile />
+                </Route>  
               </>
             ) : (
               <>

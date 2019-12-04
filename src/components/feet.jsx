@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
-import Like from "../components/like";
-import Comments from "../components/comments";
+import Like from "./like";
+import Comments from "./comments";
+import CommentContent from "./commentcontent";
 
 class Feet extends Component {
     state = {  }
@@ -13,26 +14,29 @@ class Feet extends Component {
         padding: 3
     }
 
-    // style_info = {
-    //     magin: 2
-    // }
+    accessCommentContent2 = () => {
+        this.refs.child1.handleCollapse();
+    }
 
+   
 
     render() { 
         return (  
             <Fragment>
                 
-                <div class="container" style={this.style_container}>
-                    <div class="row">
-                        <img style= {this.style_img} class="col-lg-3 col-md-3 col-sm-3" src="http://www.prettydesigns.com/wp-content/uploads/2015/03/Tomatoes-and-Eggs.jpg" alt="Food"></img>
+                <div className="container" style={this.style_container}>
+                    <div className="row">
+                        <img style= {this.style_img} className="col-lg-3 col-md-3 col-sm-3" src="http://www.prettydesigns.com/wp-content/uploads/2015/03/Tomatoes-and-Eggs.jpg" alt="Food"></img>
 
-                        <div class="col-lg-9">
+                        <div className="col-lg-9">
                             <p>user: </p>
                             <p>date: </p>
-                            <p>comment: </p>
+                            <p>Review: </p>
+                        </div>
+                    </div>
+                    <div className="row">
                             <Like />
                             <Comments />
-                        </div>
                     </div>
                 </div>
 
