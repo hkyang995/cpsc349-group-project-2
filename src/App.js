@@ -11,6 +11,7 @@ import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
 import UserProfile from "./pages/UserProfile";
+import Discover from "./pages/Discover";
 export default class App extends React.Component {
   constructor() {
     super();
@@ -57,6 +58,9 @@ export default class App extends React.Component {
               </Route>
               <Route path="/landingpage">
                 <LandingPage />
+              </Route>
+              <Route path="/discover">
+                <Discover />
               </Route>
               {this.state.user ? (
                 <>
