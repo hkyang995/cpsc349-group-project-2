@@ -1,10 +1,11 @@
 import React from "react";
+import styled from "styled-components";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Input } from "reactstrap";
 import fire from "../config/firebase";
-import styled from "styled-components";
+import db from "../config/database";
 import Space from "../components/Space";
 import Footer from "../components/Footer";
 
@@ -16,7 +17,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   margin: none;
-  background-image: url("https://images.unsplash.com/photo-1522865389096-9e6e525333d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  background-image: url("https://images.unsplash.com/photo-1549248287-f371a6246ea6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
   background-repeat: repeat;
   background-size: cover;
 `;
@@ -35,15 +36,28 @@ export default class Register extends React.Component {
   }
 
   register = e => {
-    // console.log (this.state.username);
+    // console.log (this.state.username);D
     e.preventDefault();
     fire
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(function(result) {
-        return result.user.updateProfile({
-          displayName: "testing"
-        });
+      .then(result => {
+        if (result) {
+          result.user
+            .updateProfile({
+              displayName: document.getElementById("username").value
+            })
+            .then(s => {
+              console.log("displayname", result.user.displayName);
+              db.collection("userData")
+                .doc(result.user.uid)
+                .set({
+                  uid: result.user.uid,
+                  email: result.user.email,
+                  name: result.user.displayName
+                });
+            });
+        }
       })
       .catch(error => {
         this.setState({ fireErrors: error.message });
@@ -93,7 +107,7 @@ export default class Register extends React.Component {
                     type="username"
                     name="username"
                     class="form-control"
-                    id="name"
+                    id="username"
                     placeholder="Username"
                   />
                 </Form.Group>

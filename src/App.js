@@ -28,9 +28,6 @@ export default class App extends React.Component {
     fire.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({ user });
-        // console.log(this.state.user); // output
-        // console.log(this.state.user.displayName); // output
-        console.log(this.state.user.uid); // output
       } else {
         this.setState({ user: null });
       }
