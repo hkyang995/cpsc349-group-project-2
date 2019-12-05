@@ -8,17 +8,17 @@ import Card from "react-bootstrap/Card";
 import styled from "styled-components";
 import Space from "../components/Space";
 import FooterComponent from "../components/Footer";
+import CardGroup from "react-bootstrap/CardGroup";
 
 const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: none;
   background-image: url("https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
-  background-repeat: repeat;
+  background-attachment: fixed;
   background-size: cover;
 `;
 
@@ -31,23 +31,28 @@ const CardContainer = styled.div`
 
 const CardLayout = props => (
   <Card style={{ width: "18rem" }}>
-    <Card.Img variant="top" src="holder.js/100px180" />
+    <Card.Img variant="top" src={props.img} />
     <Card.Body>
-      <Card.Title>Card Title</Card.Title>
+      <Card.Title>{props.name}</Card.Title>
       <Card.Text>
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+        <b>Price: </b> {props.price}
+        <br />
+        <b>Ratings: </b> {props.rating}
       </Card.Text>
-      <Button variant="primary">Go somewhere</Button>
+      <a href={props.link}>
+        <Button variant="primary">Visit Page</Button>
+      </a>
     </Card.Body>
   </Card>
 );
 
 export default class Discover extends React.Component {
   state = {
-    location: "New York"
+    location: "New York",
+    data: []
   };
-  componentDidMount() {
+
+  getLocation = () => {
     axios
       .get(
         `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search?location=${
@@ -58,16 +63,26 @@ export default class Discover extends React.Component {
             Authorization: `Bearer SDDBhNcjj1HpzAHUGSNNePbni7EJ5bbUVJyYD4WMeWhc0rhYgaiaOFY51Q02uiXZRg-_mOw9El2zko5IDpiOjWgEHJrJMfi8cldsea0y33kf2nwDGiWqx_m_EnHpXXYx`
           },
           params: {
-            categories: "food"
+            categories: "food",
+            limit: 20
           }
         }
       )
       .then(res => {
-        console.log(res);
+        console.log(res.data.businesses);
+        this.setState({ data: res.data.businesses });
       })
       .catch(err => {
-        console.log("error");
+        console.log("error ", err);
       });
+  };
+
+  handleChange = event => {
+    this.setState({ location: event.target.value });
+  };
+
+  componentDidMount() {
+    this.getLocation();
   }
 
   render() {
@@ -84,18 +99,33 @@ export default class Discover extends React.Component {
               type="text"
               placeholder="Enter Your City"
               className="mr-sm-2"
+              onChange={this.handleChange}
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" onClick={this.getLocation}>
+              Search
+            </Button>
           </Form>
-          <Space height="200px" />
-          <CardContainer>
-            <CardLayout />
-            <Space width="40px" />
-            <CardLayout />
-            <Space width="40px" />
-            <CardLayout />
-          </CardContainer>
-          <Space height="200px" />
+          <Space height="100px" />
+          <CardGroup>
+            {this.state.data.length === 0 ? (
+              <Alert variant={"light"}>Now Loading...</Alert>
+            ) : (
+              this.state.data.map((data, key) => (
+                <CardContainer key={key}>
+                  <Space width="20px" />
+                  <CardLayout
+                    img={data.image_url}
+                    name={data.name}
+                    link={data.url}
+                    price={data.price}
+                    rating={data.rating}
+                  />
+                  <Space width="20px" />
+                </CardContainer>
+              ))
+            )}
+          </CardGroup>
+          <Space height="100px" />
         </Container>
         <FooterComponent />
       </div>
