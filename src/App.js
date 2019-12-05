@@ -11,6 +11,8 @@ import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
 import UserProfile from "./pages/UserProfile";
+import db from "./config/database";
+
 export default class App extends React.Component {
   constructor() {
     super();
@@ -27,12 +29,12 @@ export default class App extends React.Component {
     fire.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({ user });
+        console.log("userUID", this.state.user.uid);
       } else {
         this.setState({ user: null });
       }
     });
   }
-
   render() {
     return (
       <div>
