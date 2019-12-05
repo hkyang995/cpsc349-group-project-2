@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -43,6 +44,32 @@ const CardLayout = props => (
 );
 
 export default class Discover extends React.Component {
+  state = {
+    location: "New York"
+  };
+  componentDidMount() {
+    axios
+      .get(
+        `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search?location=${
+          this.state.location
+        }`,
+        {
+          headers: {
+            Authorization: `Bearer SDDBhNcjj1HpzAHUGSNNePbni7EJ5bbUVJyYD4WMeWhc0rhYgaiaOFY51Q02uiXZRg-_mOw9El2zko5IDpiOjWgEHJrJMfi8cldsea0y33kf2nwDGiWqx_m_EnHpXXYx`
+          },
+          params: {
+            categories: "food"
+          }
+        }
+      )
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log("error");
+      });
+  }
+
   render() {
     return (
       <div>
