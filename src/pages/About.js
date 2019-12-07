@@ -7,6 +7,8 @@ import {
   CardText,
   Button,
   Fade,
+  Row,
+  Col,
   Jumbotron
 } from 'reactstrap';
 import Space from "../components/Space";
@@ -57,11 +59,49 @@ export default class About extends React.Component {
           </LeftMargin>
         </StyledJumbo>
         <ParagraphContainer>
-        <Space height="100px"/>
-        <p> text is here</p>
-        <p> text is here</p>
-        <p> text is here</p>
-        <p> text is here</p>
+        <Space height="100%"/>
+          <container>
+            <Row>
+              <Col> 
+              <Card class="border border-primary" style={{ width: '20rem' }}>
+                  
+              Still court no small think death so an wrote.
+               Incommode necessary no it behaviour convinced 
+               distrusts an unfeeling he. Could death since do 
+               we hoped is in. Exquisite no my attention extensive. 
+               The determine conveying moonlight age. 
+               Avoid for see marry sorry child. 
+               Sitting so totally forbade hundred to. 
+              </Card>
+              </Col>
+                
+              <Col>
+              <Card class="border border-primary" style={{ width: '20rem' }}>
+                  
+              Still court no small think death so an wrote.
+               Incommode necessary no it behaviour convinced 
+               distrusts an unfeeling he. Could death since do 
+               we hoped is in. Exquisite no my attention extensive. 
+               The determine conveying moonlight age. 
+               Avoid for see marry sorry child. 
+               Sitting so totally forbade hundred to. 
+              </Card>
+              </Col>
+
+              <Col>
+              <Card class="border border-primary" style={{ width: '20rem' }}>
+                  
+                  Still court no small think death so an wrote.
+                   Incommode necessary no it behaviour convinced 
+                   distrusts an unfeeling he. Could death since do 
+                   we hoped is in. Exquisite no my attention extensive. 
+                   The determine conveying moonlight age. 
+                   Avoid for see marry sorry child. 
+                   Sitting so totally forbade hundred to. 
+                </Card>
+              </Col>
+            </Row>
+          </container>
         <Space height="200px" />
         </ParagraphContainer>
         <Footer />      
