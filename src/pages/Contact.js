@@ -1,10 +1,10 @@
 import React, { useState, Component } from 'react'
+import styled from "styled-components";
+import Footer from "../components/Footer";
 import * as emailjs from 'emailjs-com'
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+import Space from "../components/Space";
 import { Button, FormFeedback, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-
-
-
 
 
 export default class ContactForm extends React.Component {
@@ -52,8 +52,9 @@ export default class ContactForm extends React.Component {
   render() {
     return (
       <>
+      <Space height="40px"/>;
         <Layout>
-          <h1 className="p-heading1">Get in Touch</h1>
+          <h1 className="p-heading1">Want to Fight? Let us know!</h1>
           <Form onSubmit={this.handleSubmit.bind(this)}>
             <FormGroup controlId="formBasicEmail">
               <Label className="text-muted">Email address</Label>
@@ -93,12 +94,15 @@ export default class ContactForm extends React.Component {
                 className="text-primary"
                 value={this.state.message}
                 onChange={this.handleChange.bind(this, 'message')}
+                placeholder="Enter your message here"
               />
             </FormGroup><Button variant="primary" type="submit">
               Submit
             </Button>
           </Form>
+          <Space height="200px"/>;
         </Layout>
+        <Footer />
       </>
     )
   }
