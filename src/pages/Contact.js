@@ -5,6 +5,24 @@ import * as emailjs from 'emailjs-com'
 import Layout from "../components/layout";
 import Space from "../components/Space";
 import { Button, FormFeedback, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import Card from "react-bootstrap/Card";
+
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: none;
+  background-image: url("https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+  background-repeat: repeat;
+  background-size: cover;
+`;
+
+const ContainCard = styled.div`
+margin-top: 60px;
+`;
 
 
 export default class ContactForm extends React.Component {
@@ -52,12 +70,15 @@ export default class ContactForm extends React.Component {
   render() {
     return (
       <>
-      <Space height="40px"/>;
+      <Container fluid>
+      <Space height="80px"/>;
         <Layout>
-          <h1 className="p-heading1">Want to Fight? Let us know!</h1>
+        <ContainCard>
+        <Card border="success" style={{ width: "40rem", padding:"40px"}}>
+        <Card.Header as="h1">Want to fight? Let us know</Card.Header>
           <Form onSubmit={this.handleSubmit.bind(this)}>
             <FormGroup controlId="formBasicEmail">
-              <Label className="text-muted">Email address</Label>
+              <Label className="text-dark">Email address</Label>
               <Input
                 type="email"
                 name="email"
@@ -67,7 +88,7 @@ export default class ContactForm extends React.Component {
                 placeholder="Enter email"
               />
             </FormGroup><FormGroup controlId="formBasicName">
-              <Label className="text-muted">Name</Label>
+              <Label className="text-dark">Name</Label>
               <Input
                 type="text"
                 name="name"
@@ -77,7 +98,7 @@ export default class ContactForm extends React.Component {
                 placeholder="Name"
               />
             </FormGroup><FormGroup controlId="formBasicSubject">
-              <Label className="text-muted">Subject</Label>
+              <Label className="text-dark">Subject</Label>
               <Input
                 type="text"
                 name="subject"
@@ -87,7 +108,7 @@ export default class ContactForm extends React.Component {
                 placeholder="Subject"
               />
             </FormGroup><FormGroup controlId="formBasicMessage">
-              <Label className="text-muted">Message</Label>
+              <Label className="text-dark">Message</Label>
               <Input
                 type="textarea"
                 name="message"
@@ -96,12 +117,15 @@ export default class ContactForm extends React.Component {
                 onChange={this.handleChange.bind(this, 'message')}
                 placeholder="Enter your message here"
               />
-            </FormGroup><Button variant="primary" type="submit">
+            </FormGroup><Button color="success" type="submit">
               Submit
             </Button>
           </Form>
+          </Card>
+          </ContainCard>
           <Space height="200px"/>;
         </Layout>
+        </Container>
         <Footer />
       </>
     )
