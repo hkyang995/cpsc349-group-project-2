@@ -10,7 +10,7 @@ import Card from "react-bootstrap/Card";
 const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 88vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@ const Container = styled.div`
 `;
 
 const ContainCard = styled.div`
-margin-top: 60px;
+margin-top: 55px;
 `;
 
 
