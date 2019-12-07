@@ -109,13 +109,17 @@ export default class LandingPage extends React.Component {
         </InfoContainer>
         <Space height="50px" />
         <InfoContainer>
-          <Button variant="primary" size="lg">
-            Login
-          </Button>
+          <a href="/login">
+            <Button variant="primary" size="lg">
+              Login
+            </Button>
+          </a>
           <Space width="100px" />
-          <Button variant="secondary" size="lg">
-            Register
-          </Button>
+          <a href="/register">
+            <Button variant="secondary" size="lg">
+              Register
+            </Button>
+          </a>
         </InfoContainer>
         <Space height="200px" />
         <Footer />
