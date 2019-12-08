@@ -105,9 +105,10 @@ class EditProfileForm extends Component {
         return ( 
             <Fragment>
                 {/* {userEmail} */}
-                <form onSubmit={this.handleAvatar}>
+                {/* <form onSubmit={this.handleAvatar}>
                     <button style={{margin: '1vh'}} type="submit">Change Avatar</button>
-                </form>
+                </form> */}
+                
 
                 <form onSubmit={this.handleSubmit}>
                     

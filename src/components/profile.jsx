@@ -5,7 +5,7 @@ import React, {Component, Fragment} from 'react';
 
 class Profile extends Component {
 state = {  }
-   style_container =
+   style_container = 
    {
        margin: '3vh',
        backgroundColor: '#efefef',
@@ -15,8 +15,8 @@ state = {  }
 
     }
 
-    render() {
-        return (
+    render() { 
+        return (  
             <Fragment>
                 <div class="container" style={this.style_container}>
                     <div class="row">
@@ -42,13 +42,13 @@ state = {  }
 
                         <div class="col-lg-12 display" style={{display:'block'}}>
                             <EditProfileForm />
-
+                            
                         </div>
                     </div>
                 </div>
-
-            </Fragment>
-
+                
+            </Fragment> 
+            
 
 
     )}; // End render
@@ -59,5 +59,5 @@ state = {  }
     //     return classes;
     // }
 } // End class
-
-export default Profile;
+ 
+export default Profile; 
