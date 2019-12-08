@@ -1,126 +1,73 @@
 import React from "react";
-import fire from "./config/firebase";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from "react-router-dom";
+import fire from './config/firebase';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./pages/Login";
-import Contact from "./pages/Contact";
-import About from "./pages/About";
 import Home from "./pages/Home";
-import Faq from "./pages/faq";
 import LandingPage from "./pages/LandingPage";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
 import UserProfile from "./pages/UserProfile";
-import Discover from "./pages/Discover";
 
 export default class App extends React.Component {
-  constructor() {
+  constructor(){
     super();
     this.state = {
       user: null
-    };
+    }
   }
 
-  PrivateRoute = ({ children, ...props }) => {
-    return (
-      <Route
-        path={props.path}
-        render={({ location }) =>
-          this.state.user ? (
-            children
-          ) : (
-            <Redirect
-              to={{
-                pathname: "/login",
-                state: { from: location }
-              }}
-            />
-          )
-        }
-      />
-    );
-  };
-
-  RedirectLoginReg = ({ children, ...props }) => {
-    console.log(props);
-    return (
-      <Route
-        path={props.path}
-        render={({ location }) =>
-          this.state.user === null ? (
-            children
-          ) : (
-            <Redirect
-              to={{
-                pathname: "/home",
-                state: { from: location }
-              }}
-            />
-          )
-        }
-      />
-    );
-  };
-
-  componentDidMount() {
+  componentDidMount(){
     this.authListener();
   }
 
-  authListener() {
-    fire.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.setState({ user });
-      } else {
-        this.setState({ user: null });
+  authListener(){
+    fire.auth().onAuthStateChanged((user) => {
+      if(user){
+        this.setState({user});
+      }else{
+        this.setState({user:null});
       }
     });
   }
 
   render() {
+    console.log(this.state.user);
     return (
       <div>
-        {
-          <Router>
-            <Navbar />
-            <Switch>
-              <this.PrivateRoute path="/home">
-                <Home />
-              </this.PrivateRoute>
-              <Route path="/faq">
-                <Faq />
-              </Route>
-              <Route path="/contact">
-                <Contact />
-              </Route>
-              <Route path="/About">
-                <About />
-              </Route>
-              <Route path="/landingpage">
-                <LandingPage />
-              </Route>
-              <Route path="/discover">
-                <Discover />
-              </Route>
-              <this.RedirectLoginReg path="/login">
-                <Login />
-              </this.RedirectLoginReg>
-              <this.RedirectLoginReg path="/register">
-                <Register />
-              </this.RedirectLoginReg>
-              <this.PrivateRoute path="/userprofile">
-                <UserProfile />
-              </this.PrivateRoute>
-              <Route path="/">
-                <LandingPage />
-              </Route>
-            </Switch>
-          </Router>
-        }
+        { <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
+          {this.state.user ? (
+              <>
+                <Route path="/login">
+                 <Home />
+                </Route>
+                <Route path="/register">
+                 <Home />
+                </Route>
+              </>
+            ) : (
+              <>
+                <Route path="/login">
+                 <Login />
+                </Route>
+                <Route path="/register">
+                 <Register />
+                </Route>
+                <Route path="/userprofile">
+                 <UserProfile />
+                </Route>
+              </>
+            )}
+          <Route path="/">
+            <LandingPage />
+          </Route>
+        </Switch>
+      </Router> }
       </div>
     );
   }
