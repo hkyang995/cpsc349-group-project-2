@@ -18,11 +18,13 @@ class UserProfile extends Component {
         <h1>User Profile</h1>
         <div class="container">
           <div class="row">
-            <div class="col-lg-7 order-lg-1 order-md-2 order-sm-2 order-xs-2" style={this.style_background}>
+            {/* <div class="col-lg-7 order-lg-1 order-md-2 order-sm-2 order-xs-2" 
+            style={this.style_background}>
               <Feet />
               <Feet />
-            </div>
-            <div class="col-lg-4 order-lg-2 order-md-1 order-sm-1 order-xs-1" style={this.style_background}>
+            </div> */}
+            <div class="col-lg-4 order-lg-2 order-md-1 order-sm-1 order-xs-1" 
+            style={this.style_background}>
               <Profile />
             </div>
 

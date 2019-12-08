@@ -36,7 +36,7 @@ export default class Register extends React.Component {
   }
 
   register = e => {
-    // console.log (this.state.username);D
+    // console.log (this.state.username);
     e.preventDefault();
     fire
       .auth()
