@@ -1,4 +1,14 @@
+### Summary of the project
+Our project is about Food Fight.
+We are using REACTJS as Frontend (Website Interface)
+We are using Firebase as Backend (Cloud datastore)
+We are also pull data from YELP API to display Food Restaurant around our location.
+
+We will explain in detail on how to setup the project and as well as run using Yarn.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We also used Firebase as your cloud data base [FIREBASE](https://firebase.google.com/)
 
 ## Available Scripts
 
@@ -67,3 +77,45 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
+### `Setting up firebase` 
+Setting Up Firebase
+To start, go to the homepage of [Firebase](https://console.firebase.google.com/u/0/) and click on the Create New Project or the App Project Button. Also, make sure that you have logged into your google account.
+
+### `Creating a Project` 
+You will then be required give a name to your project. You can give it the same as your React App, as it will help you keep things simple. But it is not mandatory to have the same name at both places
+
+### `Setting up your Cloud Firestore Database` 
+Let’s start configuring the Firebase Realtime Database for our React App. Click on the Database tab (you can also find it on the left hand side of the screen) Make sure that you are selecting “Cloud Firestore Database”, and then click on the Create database 
+
+Select the “Start in test mode” option and click on the enable button
+
+### `Select Sign-in method` 
+Go to the Authentication page.
+
+Click on the “Sign-in method” tab and make sure you have Email/Password-enabled as a sign-in provider.
+
+### `Connecting your data with react project` 
+Go to your Apps setting
+Scroll down until you see Web apps tab
+From Firebase SDK snippet
+Select Config: Here is an example of what config look like
+
+const firebaseConfig = {
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
+};
+
+Copy config into your react folder
+CPSC349-GROUP-PROJECT-2/src/config/firebase.js
+
+### `Starting your project with yarrn command` 
+You can run: "yarn && yarn start" or npm start to start your project
+It should connecting to your firebase database.
+
+Thank you 
