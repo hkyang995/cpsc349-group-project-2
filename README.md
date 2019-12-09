@@ -112,7 +112,7 @@ const firebaseConfig = {
 
     storageBucket: "",
 
-     messagingSenderId: "",
+    messagingSenderId: "",
 
     appId: "",
 
