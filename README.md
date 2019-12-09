@@ -102,12 +102,19 @@ Select Config: Here is an example of what config look like
 
 const firebaseConfig = {
   apiKey: "",
+
   authDomain: "",
+
   databaseURL: "",
+
   projectId: "",
+
   storageBucket: "",
+
   messagingSenderId: "",
+
   appId: "",
+  
   measurementId: ""
 };
 
