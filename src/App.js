@@ -1,6 +1,11 @@
 import React from "react";
 import fire from "./config/firebase";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 import Login from "./pages/Login";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
@@ -12,6 +17,7 @@ import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
 import UserProfile from "./pages/UserProfile";
 import Discover from "./pages/Discover";
+
 export default class App extends React.Component {
   constructor() {
     super();
@@ -19,6 +25,47 @@ export default class App extends React.Component {
       user: null
     };
   }
+
+  PrivateRoute = ({ children, ...props }) => {
+    return (
+      <Route
+        path={props.path}
+        render={({ location }) =>
+          this.state.user ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: location }
+              }}
+            />
+          )
+        }
+      />
+    );
+  };
+
+  RedirectLoginReg = ({ children, ...props }) => {
+    console.log(props);
+    return (
+      <Route
+        path={props.path}
+        render={({ location }) =>
+          this.state.user === null ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/home",
+                state: { from: location }
+              }}
+            />
+          )
+        }
+      />
+    );
+  };
 
   componentDidMount() {
     this.authListener();
@@ -28,12 +75,12 @@ export default class App extends React.Component {
     fire.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({ user });
-        console.log("userUID", this.state.user.uid);
       } else {
         this.setState({ user: null });
       }
     });
   }
+
   render() {
     return (
       <div>
@@ -41,9 +88,9 @@ export default class App extends React.Component {
           <Router>
             <Navbar />
             <Switch>
-              <Route path="/home">
+              <this.PrivateRoute path="/home">
                 <Home />
-              </Route>
+              </this.PrivateRoute>
               <Route path="/faq">
                 <Faq />
               </Route>
@@ -59,28 +106,18 @@ export default class App extends React.Component {
               <Route path="/discover">
                 <Discover />
               </Route>
-              {this.state.user ? (
-                <>
-                  <Route path="/login">
-                    <Home />
-                  </Route>
-                  <Route path="/register">
-                    <Home />
-                  </Route>
-                  <Route path="/userprofile">
-                    <UserProfile />
-                  </Route>
-                </>
-              ) : (
-                <>
-                  <Route path="/login">
-                    <Login />
-                  </Route>
-                  <Route path="/register">
-                    <Register />
-                  </Route>
-                </>
-              )}
+              <this.RedirectLoginReg path="/login">
+                <Login />
+              </this.RedirectLoginReg>
+              <this.RedirectLoginReg path="/register">
+                <Register />
+              </this.RedirectLoginReg>
+              <this.PrivateRoute path="/userprofile">
+                <UserProfile />
+              </this.PrivateRoute>
+              <Route path="/">
+                <LandingPage />
+              </Route>
             </Switch>
           </Router>
         }

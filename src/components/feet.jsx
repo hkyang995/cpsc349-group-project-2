@@ -8,22 +8,26 @@ class Feet extends Component {
     style_container = {
         margin: '3vh',
         backgroundColor: '#efefef'
+
     };
     style_img = {
         padding: 3
     }
+
     accessCommentContent2 = () => {
         this.refs.child1.handleCollapse();
-     }
+    }
+
+   
+
     render() { 
         return (  
-            <Fragment>                
+            <Fragment>
+                
                 <div className="container" style={this.style_container}>
                     <div className="row">
-                        <img style= {this.style_img} 
-                        className="col-lg-3 col-md-3 col-sm-3" 
-                        src="http://www.prettydesigns.com/wp-content/uploads/2015/03/Tomatoes-and-Eggs.jpg" 
-                        alt="Food"></img>
+                        <img style= {this.style_img} className="col-lg-3 col-md-3 col-sm-3" src="http://www.prettydesigns.com/wp-content/uploads/2015/03/Tomatoes-and-Eggs.jpg" alt="Food"></img>
+
                         <div className="col-lg-9">
                             <p>user: </p>
                             <p>date: </p>
@@ -35,6 +39,9 @@ class Feet extends Component {
                             <Comments />
                     </div>
                 </div>
+
+                
+
             </Fragment>
         );
     }

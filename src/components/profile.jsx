@@ -1,23 +1,20 @@
-import fire from "../config/firebase";
-import db from "../config/database";
-import EditProfileForm from "./editProfileForm";
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 
 class Profile extends Component {
-state = {  }
-   style_container = 
-   {
-       margin: '3vh',
-       backgroundColor: '#efefef',
+    state = {  }
+    style_container = {
+        margin: '3vh',
+        backgroundColor: '#efefef',
+
+    };
+    style_info = {
+        margin: '1vh'
     };
 
-    handlePrompEdit() {
-
-    }
 
     render() { 
         return (  
-            <Fragment>
+                
                 <div class="container" style={this.style_container}>
                     <div class="row">
                         {/* <div class="col-md-3"> */}
@@ -26,38 +23,22 @@ state = {  }
                     </div>
                     <div class="row" style={this.style_info}>
 
-                        {/* <div class="col-lg-12 display" style={{display:''}}>
+                        <div class="col-lg-12 ">
                             <p>user: </p>
                             <p>Slogan: </p>
                             <p>Location: </p>
                             <p>Website: </p>
                             <p>date: </p>
-                            <button
-                                type="button"
-                                onClick={this.handlePrompEdit()}
-                            >
-                                Edit Profile
-                            </button>
-                        </div> */}
-
-                        <div class="col-lg-12 display" style={{display:'block'}}>
-                            <EditProfileForm />
-                            
                         </div>
                     </div>
+
+
+
                 </div>
+
                 
-            </Fragment> 
-            
-
-
-    )}; // End render
-
-    // getDisplayClasses() {
-    //     let classes = "btn btn-";
-    //     classes += (this.state.likeActive === 0 ? "light" : "primary");
-    //     return classes;
-    // }
-} // End class
+        );
+    }
+}
  
 export default Profile; 
