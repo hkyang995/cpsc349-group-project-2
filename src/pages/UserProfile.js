@@ -52,9 +52,6 @@ class UserProfile extends Component {
   }
 
   uploadImage = event => {
-    // this.setState({
-    //   image: URL.createObjectURL(event.target.files[0])
-    // });
     const image = event.target.files[0];
     this.setState(() => ({image}));
     const progress = 0;

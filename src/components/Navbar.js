@@ -27,7 +27,7 @@ export default class NavbarComponent extends React.Component {
   render() {
     return (
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Food Fight</Navbar.Brand>
+        <Navbar.Brand href="/home">Food Fight</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">            
@@ -38,6 +38,7 @@ export default class NavbarComponent extends React.Component {
               </>
             ) : (
               <>
+                <Nav.Link href="/home">Home</Nav.Link>
                 <Nav.Link href="/login">Login</Nav.Link>
                 <Nav.Link href="/register">Register</Nav.Link>
                 <Nav.Link href="/UserProfile">User Profile</Nav.Link>
