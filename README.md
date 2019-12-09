@@ -1,11 +1,7 @@
 ### Summary of the project
 Our project is about Food Fight.
 
-We are using REACTJS as Frontend (Website Interface)
-
-We are using Firebase as Backend (Cloud datastore)
-
-We are also pull data from YELP API to display Food Restaurant around our location.
+We are using REACTJS as Frontend (Website Interface), Firebase as Backend (Cloud datastore), and also YELP API to display Food Restaurant around our location.
 
 We will explain in detail on how to setup the project and as well as run using Yarn.
 
