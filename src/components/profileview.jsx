@@ -1,3 +1,5 @@
+import fire from "../config/firebase";
+import db from "../config/database";
 import EditProfileForm from "./editProfileForm";
 import React, {Component, Fragment} from 'react';
 

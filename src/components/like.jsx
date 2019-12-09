@@ -38,10 +38,10 @@ class Like extends Component {
                 <button 
                     style={{margin: '1vh'}}
                     type="button" 
-                    class={this.getBadgeClasses()}
+                    className={this.getBadgeClasses()}
                     onClick={this.handleLikeClick}    
                 >
-                    Like <span class="badge badge-light"> {this.state.likeCount} </span>
+                    Like <span className="badge badge-light"> {this.state.likeCount} </span>
                 </button>
             </Fragment>
         );

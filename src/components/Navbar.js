@@ -43,6 +43,7 @@ export default class NavbarComponent extends React.Component {
                   title={this.state.user.displayName}
                   id="basic-nav-dropdown"
                 >
+                  <NavDropdown.Item href="../UserProfile">User Profile</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
                     Another action

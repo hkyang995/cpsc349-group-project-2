@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import CommentContent from "./commentcontent";
-import Feet from "./commentcontent";
 
 class Comments extends Component {
     state = {
@@ -25,15 +24,15 @@ class Comments extends Component {
             <Fragment>
                 <button 
                     style={{margin: '1vh'}}
-                    class="btn btn-secondary"
+                    className="btn btn-secondary"
                     type="button" 
                     onClick={this.handleCollapse}
                 >
-                    Comments <span class="badge badge-light"> {this.state.commentsCount} </span>
+                    Comments <span className="badge badge-light"> {this.state.commentsCount} </span>
                 </button>
 
-                <div class={this.getCollapseClasses()}>
-                    <div class="card card-body">
+                <div className={this.getCollapseClasses()}>
+                    <div className="card card-body">
                         <CommentContent />
                         <CommentContent />
                         <CommentContent />
