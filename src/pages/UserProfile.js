@@ -135,8 +135,51 @@ class UserProfile extends Component {
                   />
                 </Form.Group>
 
+                <Form.Group controlId="formBasicPassword">
+                  <Form.Label>About yourself</Form.Label>
+                  <Input
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                    type="text"
+                    name="bio"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="About yourself"
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">
+                  <Form.Label>Location</Form.Label>
+                  <Input
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                    type="text"
+                    name="location"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="location"
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">
+                  <Form.Label>Website</Form.Label>
+                  <Input
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                    type="text"
+                    name="website"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="website"
+                  />
+                </Form.Group>
+
                 <Button onClick={this.register} variant="primary" type="submit">
-                  Submit
+                  Save
+                </Button>
+                &nbsp;	&nbsp;	&nbsp;	&nbsp;	                          
+                <Button onClick={this.register} variant="primary" type="cancel">
+                  Cancel
                 </Button>
               </Form>
               <Space height="20px" />             
