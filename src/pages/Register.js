@@ -36,7 +36,7 @@ export default class Register extends React.Component {
   }
 
   register = e => {
-    // console.log (this.state.username);D
+    // console.log (this.state.username);
     e.preventDefault();
     fire
       .auth()
@@ -50,7 +50,7 @@ export default class Register extends React.Component {
             .then(s => {
               console.log("displayname", result.user.displayName);
               db.collection("userData")
-                .doc(result.user.uid)
+                .doc(result.user.email)
                 .set({
                   uid: result.user.uid,
                   email: result.user.email,
