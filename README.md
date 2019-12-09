@@ -77,7 +77,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-### `Setting up firebase` 
+## Setting up firebase
 Setting Up Firebase
 To start, go to the homepage of [Firebase](https://console.firebase.google.com/u/0/) and click on the Create New Project or the App Project Button. Also, make sure that you have logged into your google account.
 
