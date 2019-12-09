@@ -106,15 +106,18 @@ export default class App extends React.Component {
               <Route path="/discover">
                 <Discover />
               </Route>
+              <Route path="/userprofile">
+                <UserProfile />
+              </Route>
               <this.RedirectLoginReg path="/login">
                 <Login />
               </this.RedirectLoginReg>
               <this.RedirectLoginReg path="/register">
                 <Register />
               </this.RedirectLoginReg>
-              <this.PrivateRoute path="/userprofile">
+              {/* <this.PrivateRoute path="/userprofile">
                 <UserProfile />
-              </this.PrivateRoute>
+              </this.PrivateRoute> */}
               <Route path="/">
                 <LandingPage />
               </Route>

@@ -1,14 +1,18 @@
 ### Summary of the project
 Our project is about Food Fight.
+
 We are using REACTJS as Frontend (Website Interface)
+
 We are using Firebase as Backend (Cloud datastore)
+
 We are also pull data from YELP API to display Food Restaurant around our location.
 
 We will explain in detail on how to setup the project and as well as run using Yarn.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-We also used Firebase as your cloud data base [FIREBASE](https://firebase.google.com/)
+
+We also used Firebase as your cloud data base [FIREBASE](https://firebase.google.com/).
 
 ## Available Scripts
 
@@ -101,27 +105,28 @@ From Firebase SDK snippet
 Select Config: Here is an example of what config look like
 
 const firebaseConfig = {
-  apiKey: "",
 
-  authDomain: "",
+    apiKey: "",
 
-  databaseURL: "",
+    authDomain: "",
 
-  projectId: "",
+    databaseURL: "",
 
-  storageBucket: "",
+    projectId: "",
 
-  messagingSenderId: "",
+    storageBucket: "",
 
-  appId: "",
-  
-  measurementId: ""
+     messagingSenderId: "",
+
+    appId: "",
+
+    measurementId: ""
 };
 
 Copy config into your react folder
 CPSC349-GROUP-PROJECT-2/src/config/firebase.js
 
-### `Starting your project with yarrn command` 
+### `Starting your project with yarn command` 
 You can run: "yarn && yarn start" or npm start to start your project
 It should connecting to your firebase database.
 
