@@ -8,7 +8,7 @@ We will explain in detail on how to setup the project and as well as run using Y
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-We also used Firebase as your cloud data base [FIREBASE](https://firebase.google.com/).
+This project used Cloud Firestore as Database [FIREBASE](https://firebase.google.com/).
 
 ## Available Scripts
 
