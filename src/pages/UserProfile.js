@@ -15,6 +15,7 @@ import Space from "../components/Space";
 import Footer from "../components/Footer";
 
 import noImage from "../images/no-img.png";
+import background from "../images/profile-background.jpg";
 import noImage2 from "../images/no-img-2.png";
 import firebase from 'firebase/app';
 
@@ -29,7 +30,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   margin: none;
-  background-image: url("https://images.unsplash.com/photo-1549248287-f371a6246ea6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  background-image: url(${background});
   background-repeat: repeat;
   background-size: cover;
 `;
@@ -160,12 +161,12 @@ class UserProfile extends Component {
                   />
                 </Form.Group>                
 
-                <Button onClick={this.register} variant="primary" type="submit">
-                  Save
-                </Button>
-                &nbsp;	&nbsp;	&nbsp;	&nbsp;	                          
                 <Button onClick={this.register} variant="primary" type="cancel">
                   Cancel
+                </Button>
+                &nbsp;	&nbsp;	&nbsp;	&nbsp; &nbsp; &nbsp;	                          
+                <Button onClick={this.register} variant="primary" type="submit">
+                  Save
                 </Button>
               </Form>
               <Space height="20px" />             
