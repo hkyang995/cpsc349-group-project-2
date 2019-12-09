@@ -19,6 +19,7 @@ import noImage2 from "../images/no-img-2.png";
 import firebase from 'firebase/app';
 
 var storage = firebase.storage();
+var hidden = "hidden";
 
 const Container = styled.div`
   display: flex;
@@ -49,8 +50,9 @@ class UserProfile extends Component {
     this.handleUpload = this.handleUpload.bind(this);
   }
 
-  handleChange = e => {
-    if (e.target.files[0]) {
+  handleChange = e => {  
+    hidden = "hidden";  
+    if (e.target.files[0]) {      
       const image = e.target.files[0];
       this.setState(() => ({image}));
       const progress = 0;
@@ -59,6 +61,7 @@ class UserProfile extends Component {
   }
   
   handleUpload = () => {
+    hidden = "";
     const {image} = this.state;
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on('state_changed', (snapshot) => {
@@ -89,26 +92,22 @@ class UserProfile extends Component {
           <Card style={{ width: "40rem" }}>
             <Card.Header as="h4">Profile</Card.Header>
             <Card.Body>
-              
-              <Form>
-                <Form.Group controlId="formBasicEmail">
-                {/* <div style={style}> */}
-                <center>
-                Hi! How are you today?
-                <Space height="20px" />
+
+              <center>
+                {/* Hi! How are you today?
+                <Space height="20px" /> */}
                 <div>
-                <progress value={this.state.progress} max="100"/>
-                <br/>
                   <div>
                     <input type="file" onChange={this.handleChange}/>
                     <button onClick={this.handleUpload}>Upload</button>
                   </div>
+                  <progress value={this.state.progress} hidden={hidden} max="100"/>
                   <br/>
-                  <img src={this.state.url || noImage} alt="Uploaded images" height="200" width="200"/>
+                  <img src={this.state.url || noImage} alt="Uploaded images" height="150" width="150"/>
                 </div> 
-                </center>
-                </Form.Group>
-
+              </center>
+              
+              <Form>
                 <Form.Group controlId="formBasicUsername">
                   <Form.Label>Username</Form.Label>
                   <Input
@@ -159,20 +158,7 @@ class UserProfile extends Component {
                     id="exampleInputPassword1"
                     placeholder="location"
                   />
-                </Form.Group>
-
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Website</Form.Label>
-                  <Input
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                    type="text"
-                    name="website"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="website"
-                  />
-                </Form.Group>
+                </Form.Group>                
 
                 <Button onClick={this.register} variant="primary" type="submit">
                   Save
