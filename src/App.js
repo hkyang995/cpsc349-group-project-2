@@ -52,15 +52,10 @@ export default class App extends React.Component {
               </>
             ) : (
               <>
-                <Route path="/login">
-                 <Login />
-                </Route>
-                <Route path="/register">
-                 <Register />
-                </Route>
-                <Route path="/userprofile">
-                 <UserProfile />
-                </Route>
+                <Route path="/login"><Login /></Route>
+                <Route path="/register"><Register /></Route>
+                <Route path="/userprofile"><UserProfile /></Route>
+                <Route path="/landingpage"><LandingPage /></Route>
               </>
             )}
           <Route path="/">

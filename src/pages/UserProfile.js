@@ -47,22 +47,32 @@ class UserProfile extends Component {
       url: '',
       progress: 0
     };
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
   }
 
-  handleChange = e => {  
-    hidden = "hidden";  
-    if (e.target.files[0]) {      
-      const image = e.target.files[0];
-      this.setState(() => ({image}));
-      const progress = 0;
-      this.setState({progress});
-    }
-  }
-  
-  handleUpload = () => {
+  uploadImage = event => {
+    // this.setState({
+    //   image: URL.createObjectURL(event.target.files[0])
+    // });
+    const image = event.target.files[0];
+    this.setState(() => ({image}));
+    const progress = 0;
+    this.setState({progress});
     hidden = "";
+  };
+
+  // handleChange = e => {  
+  //   hidden = "hidden";  
+  //   if (e.target.files[0]) {      
+  //     const image = e.target.files[0];
+  //     this.setState(() => ({image}));
+  //     const progress = 0;
+  //     this.setState({progress});
+  //   }
+  // }
+  
+  handleUpload = () => {    
     const {image} = this.state;
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on('state_changed', (snapshot) => {
@@ -99,37 +109,47 @@ class UserProfile extends Component {
                 <Space height="20px" /> */}
                 <div>
                   <div>
-                    <input type="file" onChange={this.handleChange}/>
+                    <input type="file" onChange={this.uploadImage}/>
                     <button onClick={this.handleUpload}>Upload</button>
                   </div>
                   <progress value={this.state.progress} hidden={hidden} max="100"/>
                   <br/>
                   <img src={this.state.url || noImage} alt="Uploaded images" height="150" width="150"/>
                 </div> 
+
+                {/* <Form.Label htmlFor="image" className="custom-file-label">
+                        Choose your portfolio image
+                      </Form.Label>
+                      <Form.Control
+                        id="image"
+                        type="file"
+                        name="image"
+                        className="custom-file-input form-control"
+                        accept="image/*"
+                        onChange={this.showImage}
+                        required
+                      /> */}
               </center>
               
               <Form>
                 <Form.Group controlId="formBasicUsername">
                   <Form.Label>Username</Form.Label>
-                  <Input
-                    value={this.state.username}
-                    onChange={this.handleChange}
-                    type="username"
-                    name="username"
-                    class="form-control"
-                    id="username"
-                    placeholder="Username"
-                  />
+                  <Form.Control
+                      type="text"
+                      placeholder="username"
+                      name="username"
+                      // required
+                      autoFocus={true}
+                    />
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
                   <Input
                     value={this.state.password}
-                    onChange={this.handleChange}
+                    // onChange={this.handleChange}
                     type="password"
-                    name="password"
-                    class="form-control"
+                    name="password"                    
                     id="exampleInputPassword1"
                     placeholder="Password"
                   />
@@ -137,28 +157,20 @@ class UserProfile extends Component {
 
                 <Form.Group controlId="formBasicPassword">
                   <Form.Label>About yourself</Form.Label>
-                  <Input
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                    type="text"
-                    name="bio"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="About yourself"
-                  />
+                  <Form.Control
+                      type="text"
+                      placeholder="yourself"
+                      name="yourself"                                            
+                    />
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
                   <Form.Label>Location</Form.Label>
-                  <Input
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                    type="text"
-                    name="location"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="location"
-                  />
+                  <Form.Control
+                      type="text"
+                      placeholder="Location"
+                      name="location"                                            
+                    />
                 </Form.Group>                
 
                 <Button onClick={this.register} variant="primary" type="cancel">

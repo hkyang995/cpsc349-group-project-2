@@ -30,18 +30,18 @@ export default class NavbarComponent extends React.Component {
         <Navbar.Brand href="#home">Food Fight</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="/">Landing Page</Nav.Link>
-            <Nav.Link href="/home">Home</Nav.Link>
+          <Nav className="mr-auto">            
             {this.state.user ? (
               <>
-                <Nav.Link href="/home">Testing</Nav.Link>
+                <Nav.Link href="/LandingPage">Landing Page</Nav.Link>
+                <Nav.Link href="/home">Home</Nav.Link>
               </>
             ) : (
               <>
                 <Nav.Link href="/login">Login</Nav.Link>
                 <Nav.Link href="/register">Register</Nav.Link>
                 <Nav.Link href="/UserProfile">User Profile</Nav.Link>
+                
               </>
             )}
           </Nav>
