@@ -75,6 +75,7 @@ export default class App extends React.Component {
     fire.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({ user });
+        console.log("user", user);
       } else {
         this.setState({ user: null });
       }
@@ -106,7 +107,7 @@ export default class App extends React.Component {
               <Route path="/discover">
                 <Discover />
               </Route>
-              <Route path="/userprofile">
+              <Route path="/UserProfile">
                 <UserProfile />
               </Route>
               <this.RedirectLoginReg path="/login">

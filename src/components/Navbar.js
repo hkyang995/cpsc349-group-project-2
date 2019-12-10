@@ -39,17 +39,14 @@ export default class NavbarComponent extends React.Component {
             <Nav.Link href="/contact">Contact</Nav.Link>
             {this.state.user ? (
               <>
+                {/* <Nav.Link href="/UserProfile">user profile</Nav.Link> */}
                 <NavDropdown
                   title={this.state.user.displayName}
                   id="basic-nav-dropdown"
                 >
-                  <NavDropdown.Item href="../UserProfile">User Profile</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">
-                    Something
+                  <NavDropdown.Item href="/UserProfile">Profile</NavDropdown.Item>
+                  <NavDropdown.Item onClick={()=> fire.auth().signOut()} href="/landingpage">
+                    Logout
                   </NavDropdown.Item>
                 </NavDropdown>
               </>
