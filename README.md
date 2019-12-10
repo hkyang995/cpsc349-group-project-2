@@ -1,3 +1,30 @@
+# Food Fight Documentation
+
+
+How to start posting on food fight: 
+
+1.	Create an account
+
+2.	View your profile
+
+3.	Edit your profile with a profile picture if you’d like a slogan and whatever other information that could help make your profile, your profile.
+
+4.	Then go to the home page and make a new post!
+
+5.	People will then be able to comment, like, and view your food.
+
+In addition to posting food, you can use our website to find restaurants near you that serve food that you are looking for!
+
+Using our Discover feature that is integrated with the Yelp API you will be able to find food around you that has reviews, ratings and how close they are to you!
+
+In addition, on our website you can find an about page that features information about our company, a contact page, and a FAQ so if you have any more questions feel free to reach out!
+
+Keep on Food Fighting!
+
+-Food Fight Team
+
+
+
 ## Summary of the project
 Our project is about Food Fight.
 
@@ -12,8 +39,12 @@ This project used Cloud Firestore as Database [FIREBASE](https://firebase.google
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory:
 
+---- to install all dependencies, run
+### `yarn`
+
+---- to start project, run:
 ### `yarn start`
 
 Runs the app in the development mode.<br />
