@@ -16,6 +16,7 @@ import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
 import UserProfile from "./pages/UserProfile";
+import UserProfileEdit from "./pages/UserProfileEdit";
 import Discover from "./pages/Discover";
 
 export default class App extends React.Component {
@@ -109,6 +110,9 @@ export default class App extends React.Component {
               </Route>
               <Route path="/UserProfile">
                 <UserProfile />
+              </Route>
+              <Route path="/UserProfileEdit">
+                <UserProfileEdit />
               </Route>
               <this.RedirectLoginReg path="/login">
                 <Login />
