@@ -1,5 +1,6 @@
 # Food Fight Documentation
 
+Food Fight is the newest entry to the social media era of taking photographs of your food and posting them for others to view comment and like! In no time anyone can get started on creating their profile and start uploading pictures of food!
 
 How to start posting on food fight: 
 
