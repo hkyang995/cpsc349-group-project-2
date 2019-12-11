@@ -182,8 +182,8 @@ export default class Home extends React.Component {
       <div>
           <Container>
           <Space height="30px" />
-          <Card style={{ width: "40rem" }}>
-            <Card.Body>          
+          <Card style={{ width: "40rem"}}>
+            <Card.Body >          
               <Form>
                 <Form.Group controlId="formBasicUsername">
                   <Form.Control 
@@ -215,7 +215,7 @@ export default class Home extends React.Component {
             </Card.Body>
           </Card>
 
-          <CardGroup>
+          <CardGroup style={{marginLeft: "6rem"}}>
             {this.state.post.length === 0 ? (
               <Spinner animation="border" variant="info" >
                 <span className="sr-only">Loading...</span>
