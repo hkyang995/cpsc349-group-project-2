@@ -27,6 +27,9 @@ const CardContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: 30px;
+  padding-left: 30px;
+  variant: bottom;
 `;
 
 const CardLayout = props => (
@@ -106,7 +109,7 @@ export default class Discover extends React.Component {
             </Button>
           </Form>
           <Space height="100px" />
-          <CardGroup>
+          <CardGroup style={{marginLeft: "6rem"}}>
             {this.state.data.length === 0 ? (
               <Alert variant={"light"}>Now Loading...</Alert>
             ) : (
