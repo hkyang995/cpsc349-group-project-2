@@ -215,7 +215,7 @@ export default class Home extends React.Component {
             </Card.Body>
           </Card>
 
-          <CardGroup>
+          <CardGroup style={{marginLeft: "6rem"}}>
             {this.state.post.length === 0 ? (
               <Spinner animation="border" variant="info" >
                 <span className="sr-only">Loading...</span>

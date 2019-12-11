@@ -60,10 +60,14 @@ export default class Register extends React.Component {
                 });
             });
         }
+
+        window.location.reload(false);
       })
       .catch(error => {
         this.setState({ fireErrors: error.message });
       });
+
+     
   };
 
   handleChange = e => {
