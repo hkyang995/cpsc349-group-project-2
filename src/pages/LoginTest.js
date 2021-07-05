@@ -1,7 +1,7 @@
 import React from "react";
 import fire from "../config/firebase";
 
-export default class Home extends React.Component {
+export default class LoginTest extends React.Component {
   render() {
     return (
       <div>
